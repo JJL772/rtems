@@ -1285,6 +1285,7 @@ def load_items_from_options(ctx):
 
 
 def options(ctx):
+    ctx.load('clang_compilation_database')
     prefix = ctx.parser.get_option("--prefix")
     prefix.default = default_prefix
     prefix.help = "installation prefix [default: '{}']".format(default_prefix)
@@ -1527,6 +1528,7 @@ def get_top_group(ctx):
 
 
 def configure(conf):
+    conf.load('clang_compilation_database')
     check_forbidden_options(conf, ["compiler"])
     configure_version(conf)
     check_environment(conf)
